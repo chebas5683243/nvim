@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =7
+let g:netrw_dirhist_7='/Users/sebastian.flores'
+let g:netrw_dirhist_6='/Users/sebastian.flores/.vim'
+let g:netrw_dirhist_5='/Users/sebastian.flores/.vim/lua'
+let g:netrw_dirhist_4='/Users/sebastian.flores/.vim/lua/sefles'
+let g:netrw_dirhist_3='/Users/sebastian.flores/.vim/lua'
+let g:netrw_dirhist_2='/Users/sebastian.flores/.vim'
+let g:netrw_dirhist_1='/Users/sebastian.flores/.config'
+let g:netrw_dirhist_0='/Users/sebastian.flores/.config/nvim'
+let g:netrw_dirhist_9='/Users/sebastian.flores/.config/nvim/lua'
+let g:netrw_dirhist_8='/Users/sebastian.flores/.config/nvim/lua/sefles'
