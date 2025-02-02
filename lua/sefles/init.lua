@@ -1,2 +1,2 @@
-require("sefles.set")
-require("sefles.remap")
+require("sefles.core")
+require("sefles.lazy")
