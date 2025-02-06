@@ -26,3 +26,13 @@ vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
 vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
 vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
 vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
+
+vim.keymap.set("n", "<space>nt", function ()
+  vim.cmd.vnew()
+  vim.cmd.term()
+  vim.cmd.wincmd("L")
+  vim.cmd("startinsert")
+end)
+
+vim.keymap.set("t", "<C-t>", "<C-\\><C-N>", { noremap = true, silent = true })
+
