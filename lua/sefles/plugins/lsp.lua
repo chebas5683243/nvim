@@ -1,8 +1,6 @@
 return {
   "neovim/nvim-lspconfig",
   dependencies = {
-    "williamboman/mason.nvim",
-    "williamboman/mason-lspconfig.nvim",
     "hrsh7th/cmp-nvim-lsp",
     "hrsh7th/cmp-buffer",
     "hrsh7th/cmp-path",
@@ -24,20 +22,19 @@ return {
     )
 
     require("fidget").setup({})
+
+    local lspconfig = require("lspconfig")
+
     require("mason").setup()
     require("mason-lspconfig").setup({
-      ensure_installed = {
-        "lua_ls",
-      },
       handlers = {
-        function(server_name) -- default handler (optional)
+        function(server_name)
           require("lspconfig")[server_name].setup {
             capabilities = capabilities
           }
         end,
 
         ["lua_ls"] = function()
-          local lspconfig = require("lspconfig")
           lspconfig.lua_ls.setup {
             capabilities = capabilities,
             settings = {
@@ -50,6 +47,13 @@ return {
             }
           }
         end,
+
+        ["emmet_ls"] = function()
+          lspconfig.emmet_ls.setup({
+            capabilities = capabilities,
+            filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less" },
+          })
+        end,
       }
     })
 
@@ -58,7 +62,7 @@ return {
     cmp.setup({
       snippet = {
         expand = function(args)
-          require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
+          require('luasnip').lsp_expand(args.body)
         end,
       },
       mapping = cmp.mapping.preset.insert({
@@ -69,14 +73,13 @@ return {
       }),
       sources = cmp.config.sources({
         { name = 'nvim_lsp' },
-        { name = 'luasnip' }, -- For luasnip users.
+        { name = 'luasnip' },
       }, {
         { name = 'buffer' },
       })
     })
 
     vim.diagnostic.config({
-      -- update_in_insert = true,
       float = {
         focusable = false,
         style = "minimal",
