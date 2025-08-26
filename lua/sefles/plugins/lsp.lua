@@ -54,6 +54,19 @@ return {
             filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less" },
           })
         end,
+
+        ["tailwindcss"] = function()
+          lspconfig.tailwindcss.setup {
+            settings = {
+              tailwindCSS = {
+                experimental = {
+                  classRegex = {
+                    { "(?<=cva\\([\\s\\S]*?)[\"']([^\"']+)[\"']" }
+                  },
+                },
+              }, }
+          }
+        end,
       }
     })
 
