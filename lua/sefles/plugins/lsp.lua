@@ -57,11 +57,13 @@ return {
 
         ["tailwindcss"] = function()
           lspconfig.tailwindcss.setup {
+            capabilities = capabilities,
             settings = {
               tailwindCSS = {
                 experimental = {
                   classRegex = {
-                    { "(?<=cva\\([\\s\\S]*?)[\"']([^\"']+)[\"']" }
+                    { "cva\\(([^)]*)\\)", "([^\"']*)" },
+                    "variants:\\s*\\{[^}]*?\\}",
                   },
                 },
               }, }

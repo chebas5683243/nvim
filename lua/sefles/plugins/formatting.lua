@@ -17,6 +17,7 @@ return {
         markdown = { "prettier" },
         graphql = { "prettier" },
         lua = { "stylua" },
+        terraform = { "terraform_fmt" }
       },
       format_on_save = {
         lsp_fallback = true,
